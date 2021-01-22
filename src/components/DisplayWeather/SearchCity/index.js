@@ -1,20 +1,10 @@
-import React, { useState } from 'react';
-import { SearchCities } from '../../../services/AccuWeather';
-import { useDispatch } from 'react-redux';
-import actionsDataWeather from '../../../actions/dataWeather';
+import React, { useState, memo } from 'react';
 
-export default function SearchCity () {
+const SearchCity = ({ onHandleNameCity }) => {
     const [city, setCity] = useState('');
-    const dispatch = useDispatch();
 
     const onChangeCity = value => setCity(value);   
-
-    const searchForCity = async () => {
-        const response = await SearchCities(city);
-
-        dispatch(actionsDataWeather.setWordSearch(city));
-        dispatch(actionsDataWeather.setListCities(response));
-    }
+    const setNameCity = () => onHandleNameCity(city);
 
     return (
         <div className="row justify-content-center">
@@ -22,13 +12,13 @@ export default function SearchCity () {
                 <input type="text" 
                     value={city} 
                     onChange={e => onChangeCity(e.target.value)} 
-                    onKeyPress={e => e.key === 'Enter' && searchForCity()}
+                    onKeyPress={e => e.key === 'Enter' && setNameCity()}
                     className="form-control shadow-none bg-light rounded"
                     placeholder="Insira o nome da cidade"
                 />
                 <button type="button" 
                     className="btn btn-success mt-1" 
-                    onClick={searchForCity}
+                    onClick={setNameCity}
                 >
                     Pesquisar
                 </button>
@@ -36,3 +26,5 @@ export default function SearchCity () {
         </div>
     )
 }
+
+export default memo(SearchCity)
