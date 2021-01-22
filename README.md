@@ -1,6 +1,8 @@
 # Clima
 
-Repositório para fins de estudos com React
-Aplicação simples onde busca o clima atual de alguma cidade, utilizando a API do accuweather, https://developer.accuweather.com/apis
+Repositório para fins de **estudos** com React 🤓 
 
-Nessa branch eu tento resolver o mesmo problema, sem utilizar o redux - para visualizar com redux troque a branch :)
+
+Aplicação extremamente simples, onde o objetivo principal é dar os primeiros passos com o React, a aplicação busca o clima atual de alguma cidade, utilizando a API do accuweather: https://developer.accuweather.com/apis
+
+Nessa branch eu monto a aplicação sem utilizar o redux, na branch **with-redux** é a mesma aplicação onde tento montar a aplicação com o uso do redux
